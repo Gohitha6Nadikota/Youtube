@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosSearch } from "react-icons/io";
 import { MdMic } from "react-icons/md";
@@ -7,11 +8,35 @@ import { FaRegBell } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appslice";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
 const Header = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => getSuggestions(), 200);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchQuery]);
+
+  const getSuggestions = async () => {
+    try {
+      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      const json = await data.json();
+      setSuggestions(json[1]);
+      //console.log(json);
+    } catch (err) {
+      console.log("Error");
+    }
+  };
+
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
+
   return (
     <div className="grid grid-flow-col p-2 m-2 shadow-xl text-white">
       <div className="col-span-1 flex">
@@ -27,12 +52,24 @@ const Header = () => {
         </a>
       </div>
       <div className="col-span-10 px-10 py-auto items-center flex  justify-center align-center">
-        <input
-          className=" w-1/2 center border bg-gray-900 border-gray-900 rounded-l-3xl h-9"
-          type="text"
-          placeholder="    Search"
-        />
-
+        <div className="w-1/2 center border bg-gray-900 border-gray-900 rounded-l-3xl h-9 ">
+          <input
+            className="pl-5 w-full center border bg-gray-900 border-gray-900 rounded-l-3xl h-9"
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={()=>setShowSuggestions(true)}
+            onBlur={()=>setShowSuggestions(false)}
+          />
+          { showSuggestions && suggestions.length!==0 &&( <div className=" w-[490px]  shadow-xl absolute z-90">
+            <ul className="pl-2 bg-black text-white rounded-lg border border-gray-900">
+              {suggestions.map((s) => (
+                <li key={s} className="py-2 shadow-sm hover:bg-gray-800 ">🔍 {s}</li>))}
+            </ul>
+          </div>)
+          }
+        </div>
         <button className="border border-gray-900   bg-gray-900 center rounded-r-3xl h-9">
           <div className="mx-1 p-1 text-2xl">
             <IoIosSearch />
