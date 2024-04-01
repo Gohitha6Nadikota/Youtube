@@ -6,15 +6,25 @@ import { MdMic } from "react-icons/md";
 import { MdCreateNewFolder } from "react-icons/md";
 import { FaRegBell } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appslice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const dispatch = useDispatch();
+  const cacheSearch = useSelector(store => store.search);
   useEffect(() => {
-    const timer = setTimeout(() => getSuggestions(), 200);
+    const timer = setTimeout(() => {
+      if (cacheSearch[searchQuery]) {
+        setSuggestions(cacheSearch[searchQuery]);
+      }
+      else {
+        getSuggestions();
+      }
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -26,13 +36,13 @@ const Header = () => {
       const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
       const json = await data.json();
       setSuggestions(json[1]);
-      //console.log(json);
+      dispatch(cacheResults({
+        [searchQuery]: json[1],
+      }));
     } catch (err) {
       console.log("Error");
     }
   };
-
-  const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };

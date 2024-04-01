@@ -22,7 +22,6 @@ const Videocontainer = () =>
           <Videocard info={video} />
         </Link>
       ))}
-      {/*<Videocard info={videos[0]}/>*/}
     </div>
   );
 }

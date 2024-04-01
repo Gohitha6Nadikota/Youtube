@@ -8,6 +8,7 @@ import { RiShareForwardLine } from "react-icons/ri";
 import { TfiDownload } from "react-icons/tfi";
 import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
+import { CommentPart } from "./CommentPart";
 
 const Watchpage = () => {
   const [searchParams] = useSearchParams();
@@ -93,6 +94,7 @@ const Watchpage = () => {
           </div>
         </div>
       </div>
+      <CommentPart/>
     </div>
   );
 };
