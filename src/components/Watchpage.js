@@ -10,6 +10,7 @@ import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
 import { CommentPart } from "./CommentPart";
 
+
 const Watchpage = () => {
   const [searchParams] = useSearchParams();
   const videoid = searchParams.get("v");
@@ -21,13 +22,13 @@ const Watchpage = () => {
     const json = await data.json();
     setData(json);
   };
+  
   useEffect(() => {
     dispatch(closeMenu());
     getData();
-  },[]);
-
+  }, []);
   return (
-    <div>
+    <div className="w-[1050px]">
       <div className="px-5">
         <iframe
           width="1000"
@@ -94,7 +95,7 @@ const Watchpage = () => {
           </div>
         </div>
       </div>
-      <CommentPart/>
+      <CommentPart videoid={videoid}/>
     </div>
   );
 };
