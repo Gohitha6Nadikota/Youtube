@@ -9,7 +9,7 @@ import { TfiDownload } from "react-icons/tfi";
 import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
 import { CommentPart } from "./CommentPart";
-
+import LiveChat from "./LiveChat";
 
 const Watchpage = () => {
   const [searchParams] = useSearchParams();
@@ -22,26 +22,31 @@ const Watchpage = () => {
     const json = await data.json();
     setData(json);
   };
-  
+
   useEffect(() => {
     dispatch(closeMenu());
     getData();
   }, []);
   return (
-    <div className="w-[1050px]">
-      <div className="px-5">
-        <iframe
-          width="1000"
-          height="500"
-          src={"https://www.youtube.com/embed/" + videoid}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+    <div className="w-full bg-black">
+      <div className="px-5 flex w-[4/12]">
+        <div className="">
+          <iframe
+            width="1000"
+            height="500"
+            src={"https://www.youtube.com/embed/" + videoid}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="w-full">
+          <LiveChat />
+        </div>
       </div>
-      <div className="px-4 m-2 ">
+      <div className="px-4 m-2 w-[4/12]">
         <div className="font-bold text-xl ">
           {videodata?.items?.[0]?.snippet?.title}
         </div>
@@ -64,7 +69,7 @@ const Watchpage = () => {
               Subscribe
             </button>
           </div>
-          <div className="flex justify-end w-full">
+          <div className="flex justify-end w-4/12">
             <div className="flex justify-end">
               <div className="flex mx-2 px-2 h-8 rounded-full bg-gray-900">
                 <button className="border m-1 text-xl border-black">
@@ -95,7 +100,7 @@ const Watchpage = () => {
           </div>
         </div>
       </div>
-      <CommentPart videoid={videoid}/>
+      <CommentPart videoid={videoid} />
     </div>
   );
 };
