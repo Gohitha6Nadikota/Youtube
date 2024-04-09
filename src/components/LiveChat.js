@@ -20,20 +20,20 @@ const LiveChat = () => {
     };
   }, []);
   return (
-    <div>
+    <div className="w-full">
       <div className=" mx-2 p-1 my-1 border border-gray-200 rounded-lg w-full h-[500px] overflow-y-scroll flex flex-col-reverse">
         {chatMessages.map((mgs, index) => (
           <IndividualChat key={index} name={mgs.name} message={mgs.message} />
         ))}
       </div>
       <form
-        className="mx-1 py-0 my-0 border h-9 border-gray-200 rounded-lg "
+        className="mx-1 py-0 my-0 border h-9 border-gray-200 rounded-lg flex justify-between "
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(
             addMessage({
               name: "user",
-              message: LiveMessage ,
+              message: LiveMessage,
             })
           );
           setLiveMessage("");
@@ -41,8 +41,8 @@ const LiveChat = () => {
       >
         <input
           type="text"
+          style={{ outline: "none" }}
           placeholder="Enter your comment"
-          autoFocus="false"
           className="w-96 mx-3 px-1 bg-black text-white rounded-lg"
           value={LiveMessage}
           onChange={(e) => {

@@ -10,12 +10,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appslice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
+import ToggleButton from './ToggleButton';
+
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const dispatch = useDispatch();
   const cacheSearch = useSelector(store => store.search);
+  const isDarkMode = useSelector(store => store.mode.isDarkMode);
   useEffect(() => {
     const timer = setTimeout(() => {
       if (cacheSearch[searchQuery]) {
@@ -92,6 +95,7 @@ const Header = () => {
         </button>
       </div>
       <div className="col-span-1 flex ml-auto">
+        <ToggleButton/>
         <button className="text-2xl m-2 p-2">
           <MdCreateNewFolder />
         </button>
