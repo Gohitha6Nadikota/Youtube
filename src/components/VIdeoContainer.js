@@ -6,7 +6,7 @@ import Videocard from './videocard'
 const Videocontainer = () =>
 {
   const [videos, setVideos] = useState([]);
-  const apiKey = process.env.YOUR_API_KEY;
+  const apiKey = process.env.REACT_APP_YOUR_API_KEY;
   const youtubeAPI = YOUTUBE_API + apiKey
   useEffect(()=>{
     getVideos()

@@ -14,7 +14,7 @@ import LiveChat from "./LiveChat";
 const Watchpage = () => {
   const [searchParams] = useSearchParams();
   const videoid = searchParams.get("v");
-  const apiKey = process.env.YOUR_API_KEY;
+  const apiKey = process.env.REACT_APP_YOUR_API_KEY;
   const [videodata, setData] = useState();
   const dispatch = useDispatch();
   const getData = async () => {
