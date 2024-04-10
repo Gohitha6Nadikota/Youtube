@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appslice";
 import { useSearchParams } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
-import { YOUR_API_KEY, YOUTUBE_VIDEO_API } from "../utils/constants";
+import { YOUTUBE_VIDEO_API } from "../utils/constants";
 import { RiShareForwardLine } from "react-icons/ri";
 import { TfiDownload } from "react-icons/tfi";
 import { BiLike } from "react-icons/bi";
@@ -14,10 +14,11 @@ import LiveChat from "./LiveChat";
 const Watchpage = () => {
   const [searchParams] = useSearchParams();
   const videoid = searchParams.get("v");
+  const apiKey = process.env.YOUR_API_KEY;
   const [videodata, setData] = useState();
   const dispatch = useDispatch();
   const getData = async () => {
-    const url = YOUTUBE_VIDEO_API + videoid + "&key=" + YOUR_API_KEY;
+    const url = YOUTUBE_VIDEO_API + videoid + "&key=" + apiKey;
     const data = await fetch(url);
     const json = await data.json();
     setData(json);

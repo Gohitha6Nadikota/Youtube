@@ -64,7 +64,7 @@ const Header = () => {
           />
         </a>
       </div>
-      <div className="col-span-10 px-10 py-auto items-center flex  justify-center align-center">
+      <div className="col-span-10 px-10 py-auto items-center justify-center align-center hidden md:flex">
         <div className="w-1/2 center border bg-gray-900 border-gray-900 rounded-l-3xl h-9 ">
           <input
             className="pl-5 w-full center border bg-gray-900 border-gray-900 rounded-l-3xl h-9"
@@ -76,10 +76,10 @@ const Header = () => {
             onBlur={()=>setShowSuggestions(false)}
           />
           { showSuggestions && suggestions.length!==0 &&( <div className=" w-[490px]  shadow-xl absolute z-90">
-            <ul className="pl-2 bg-black text-white rounded-lg border border-gray-900">
-              {suggestions.map((s) => (
+              <ul className="pl-2 bg-black text-white rounded-lg border border-gray-900">
+                {suggestions.map((s) => (
                 <li key={s} className="py-2 shadow-sm hover:bg-gray-800 ">🔍 {s}</li>))}
-            </ul>
+              </ul>
           </div>)
           }
         </div>
@@ -95,7 +95,6 @@ const Header = () => {
         </button>
       </div>
       <div className="col-span-1 flex ml-auto">
-        <ToggleButton/>
         <button className="text-2xl m-2 p-2">
           <MdCreateNewFolder />
         </button>

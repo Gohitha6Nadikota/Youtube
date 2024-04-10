@@ -2,7 +2,6 @@
 import './App.css';
 import Header from './components/Header';
 import Body from './components/Body';
-import {useSelector} from "react-redux";
 import { RouterProvider,createBrowserRouter } from 'react-router-dom';
 import MainContainer from './components/MainContainer';
 import Watchpage from './components/Watchpage';
@@ -24,9 +23,8 @@ const appRouter = createBrowserRouter([
   }
 ])
 function App() {
-  const isDarkMode = useSelector(store => store.mode.darkmode);
   return (
-    <div className={`w-full h-full ${isDarkMode? 'bg-black':'bg-white'}`} >
+    <div className="w-full h-full bg-black">
       <Header />
       <RouterProvider router={appRouter} />
     </div>
