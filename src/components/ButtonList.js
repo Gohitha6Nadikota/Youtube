@@ -1,10 +1,25 @@
 import React from "react";
 import EachButton from "./EachButton";
 
-const list = ["All", "C++", "Watched", "Music","Software Engineering","Indian", "Live","Cloud", "Health", "Love","M.S.Subbalakshmi","Mantras","Equations"];
+const list = [
+  "All",
+  "Python",
+  "Favorites",
+  "Classical Music",
+  "Web Development",
+  "Bollywood Hits",
+  "Streaming",
+  "Data Science",
+  "Fitness",
+  "Rahman",
+  "Yoga and Meditation",
+  "Quantum Physics",
+];
+
 const Buttonlist = () => {
+  
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap sm:m-2 md:mx-4 md:my-3">
       {list.map((item, key) => (
         <EachButton key={key} name={item} />
       ))}

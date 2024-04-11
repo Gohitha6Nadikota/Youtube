@@ -1,24 +1,20 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import { useEffect ,useState} from 'react'
-import {YOUTUBE_API} from '../utils/constants'
+import {useSelector,useDispatch} from 'react-redux'
 import Videocard from './videocard'
+import { fetchVideos } from '../utils/videoSlice'
 const Videocontainer = () =>
 {
-  const [videos, setVideos] = useState([]);
-  const apiKey = process.env.REACT_APP_YOUR_API_KEY;
-  const youtubeAPI = YOUTUBE_API + apiKey
-  useEffect(()=>{
-    getVideos()
-  },[])
+  const videos = useSelector(state => state.videos.videos);
+   //console.log(videos[0].id);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchVideos());
+  }, [dispatch]);
 
-  const getVideos= async ()=>{
-    const data = await fetch(youtubeAPI);
-     const json= await data.json();
-     setVideos(json.items);
-  }
+ 
   return (
-    <div className="flex flex-wrap justify-center p-2 m-2">
+    <div className="flex flex-wrap justify-center sm:p-0 sm:m-0 md:p-2 md:m-2">
       <>
         {videos.map((video) => (
           <Link to={"/watch?v=" + video.id} key={video.id}>

@@ -12,7 +12,7 @@ const SideBar = () => {
   if (isMenuOpen === false)
     return null
   return (
-    <div className="w-108 mb-4 shadow-md">
+    <div className="w-108 mb-4 shadow-md absolute bg-black ml-0 sm:relative sm:ml-3">
       <div className="flex align-center items-center m-3 w-[150px]">
         <div className="text-3xl">
           <IoMdHome />

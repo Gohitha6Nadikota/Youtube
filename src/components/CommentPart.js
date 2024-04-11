@@ -10,7 +10,7 @@ export const CommentPart = ({ videoid }) => {
     const data = await fetch(url);
     const json = await data.json();
     setComments(json?.items);
-    console.log(json?.items);
+    //console.log(json?.items);
   };
   useEffect(() => {
     getComments();
