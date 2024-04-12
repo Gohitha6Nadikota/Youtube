@@ -54,12 +54,10 @@ const Header = () => {
     }
   };
   const fetchData = async (s) => {
-    //console.log("FETCH DATA")
     const data = await fetch(
-      YOUTUBE_SEARCH_RESULTS_API + searchKey + "&key=" + apiKey
+      YOUTUBE_SEARCH_RESULTS_API + s + "&key=" + apiKey
     );
     const json = await data.json();
-    console.log(json.items);
     dispatch(updateVideos(json.items));
   };
   const handleSearchQuery = (s) =>

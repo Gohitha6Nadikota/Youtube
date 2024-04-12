@@ -6,20 +6,21 @@ import { fetchVideos } from '../utils/videoSlice'
 const Videocontainer = () =>
 {
   const videos = useSelector(state => state.videos.videos);
-   //console.log(videos[0].id);
+  console.log(videos);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchVideos());
   }, [dispatch]);
-
- 
+  const getVideoId = (video) => {
+    return video.id?.videoId || video.id;
+  }
   return (
     <div className="flex flex-wrap justify-center sm:p-0 sm:m-0 md:p-2 md:m-2">
       <>
-        {videos.map((video) => (
-          <Link to={"/watch?v=" + video.id} key={video.id}>
-            <Videocard info={video} />
-          </Link>
+        {videos.map((video, index) => (
+            <Link to={`/watch?v=${getVideoId(video)}`} key={index}>
+          <Videocard info={video} />
+        </Link>
         ))}
       </>
     </div>
