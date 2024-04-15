@@ -4,7 +4,7 @@ import VIdeoContainer from './VIdeoContainer'
 
 const MainContainer = () => {
   return (
-      <div>
+      <div className='w-full flex align-middle flex-col'>
           <ButtonList />
           <VIdeoContainer/>
     </div>

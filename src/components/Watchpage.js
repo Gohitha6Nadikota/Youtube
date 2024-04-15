@@ -14,6 +14,7 @@ import LiveChat from "./LiveChat";
 const Watchpage = () => {
   const [searchParams] = useSearchParams();
   const videoid = searchParams.get("v");
+  const [isSubscribed, setSubscribed] = useState(0);
   const apiKey = process.env.REACT_APP_YOUR_API_KEY;
   const [videodata, setData] = useState();
   const dispatch = useDispatch();
@@ -23,7 +24,9 @@ const Watchpage = () => {
     const json = await data.json();
     setData(json);
   };
-
+  const handleSubscribe = () => {
+    setSubscribed(!isSubscribed);
+  }
   useEffect(() => {
     dispatch(closeMenu());
     getData();
@@ -69,8 +72,13 @@ const Watchpage = () => {
               </div>
             </div>
             <div className="m-1 p-1 items-center flex">
-              <button className="text-black bg-white font-bold rounded-3xl w-[100px] h-10">
-                Subscribe
+              <button
+                className={`text-black font-bold rounded-3xl w-[100px] h-10 ${
+                  isSubscribed ? "bg-gray-600" : "bg-white"
+                }`}
+                onClick={handleSubscribe}
+              >
+                {isSubscribed ? "Subscribed" : "Subscribe"}
               </button>
             </div>
           </div>
