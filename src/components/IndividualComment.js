@@ -11,7 +11,7 @@ const IndividualComment = ({ data }) => {
         </button>
         <div className="">
           <h1 className="font-bold text-sm my-1">{authorDisplayName}</h1>
-          <h2 className="text-sm">{textDisplay}</h2>
+          <h2 className="text-sm break-all">{textDisplay}</h2>
           <div className="flex m-1">
             <div className="m-1">
               <BiLike />
