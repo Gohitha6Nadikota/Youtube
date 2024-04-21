@@ -74,19 +74,22 @@ const Header = () => {
   return (
     <div className="grid grid-flow-col p-2 m-0 shadow-xl text-white w-full bg-black">
       <div className="col-span-1 flex m-2">
-        <div className="my-auto text-2xl md:mx-1" onClick={() => toggleMenuHandler()}>
+        <div
+          className="my-auto text-2xl md:mx-1"
+          onClick={() => toggleMenuHandler()}
+        >
           <GiHamburgerMenu />
         </div>
         <a href="/">
           <img
-            className="h-12 mx-2 pt-1"
+            className="h-12 mx-2 pt-1 min-w-[72px] "
             src="https://cdn.gtricks.com/2021/04/how-to-enable-youtube-dark-mode-on-pc-and-android-ios-1280x720.jpg"
             alt="youtube-icon"
           />
         </a>
       </div>
-      <div className="col-span-10 px-10 py-auto items-center justify-center align-center hidden md:flex">
-        <div className="w-1/3 center border bg-gray-900 border-gray-900 rounded-l-3xl h-9 ">
+      <div className="col-span-10 px-10 py-auto items-center justify-center align-center flex">
+        <div className=" w-1/2 md:w-1/3 min-w-[84px] center border bg-gray-900 border-gray-900 rounded-l-3xl h-9">
           <input
             className="pl-5 w-full center border bg-gray-900 border-gray-900 rounded-l-3xl h-9"
             type="text"
@@ -119,13 +122,13 @@ const Header = () => {
             <IoIosSearch />
           </div>
         </button>
-        <button className="border bg-gray-900 border-gray-900 rounded-full w-9 h-9 m-2">
+        <button className="border bg-gray-900 border-gray-900 rounded-full w-9 h-9 m-2 hidden md:flex">
           <div className="text-xl m-1 p-1">
             <MdMic />
           </div>
         </button>
       </div>
-      <div className="col-span-1 flex justify-end xl:justify-start">
+      <div className="col-span-1 justify-end xl:justify-start hidden md:flex">
         <button className="text-2xl m-2 p-2">
           <MdCreateNewFolder />
         </button>

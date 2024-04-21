@@ -21,13 +21,13 @@ const LiveChat = () => {
   }, []);
   return (
     <div className="w-full">
-      <div className=" mx-2 p-1 my-1 border border-gray-200 rounded-lg w-full h-[500px] overflow-y-scroll flex flex-col-reverse">
+      <div className="mx-0 mt-2 md:mx-2 md:mt-0 p-1 my-1 border border-gray-200 rounded-lg w-full h-[500px] overflow-y-scroll flex flex-col-reverse">
         {chatMessages.map((mgs, index) => (
           <IndividualChat key={index} name={mgs.name} message={mgs.message} />
         ))}
       </div>
       <form
-        className="mx-1 py-0 my-0 border h-9 border-gray-200 rounded-lg flex justify-between "
+        className="mx-0 mt-2 md:mx-2 md:mt-0 py-0 my-1 w-full border h-9 border-gray-200 rounded-lg flex justify-between "
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(

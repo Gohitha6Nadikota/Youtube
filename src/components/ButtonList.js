@@ -47,11 +47,11 @@ const Buttonlist = () => {
   };
 
   return (
-    <div className="flex ">
+    <div className="flex mx-[20px]">
       <button onClick={scrollLeft}>&lt;</button>
       <div
         ref={scrollContainer}
-        className="flex overflow-x-auto sm:m-2 md:mx-4 md:my-3 no-scrollbar"
+        className="flex overflow-x-auto sm:m-2 md:mx-4 md:my-3 no-scrollbar "
         style={{ scrollBehavior: "smooth" }}
       >
         {list.map((item, key) => (

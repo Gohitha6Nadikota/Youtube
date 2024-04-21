@@ -6,7 +6,7 @@ import { fetchVideos } from '../utils/videoSlice'
 const Videocontainer = () =>
 {
   const videos = useSelector(state => state.videos.videos);
-  console.log(videos);
+  //console.log(videos);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchVideos());
