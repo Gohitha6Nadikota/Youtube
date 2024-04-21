@@ -88,8 +88,8 @@ const Header = () => {
           />
         </a>
       </div>
-      <div className="col-span-10 px-10 py-auto items-center justify-center align-center flex">
-        <div className=" w-1/2 md:w-1/3 min-w-[84px] center border bg-gray-900 border-gray-900 rounded-l-3xl h-9">
+      <div className="py-auto items-center justify-center align-center flex w-auto">
+        <div className=" w-1/2 min-w-[84px]  center border bg-gray-900 border-gray-900 rounded-l-3xl h-9">
           <input
             className="pl-5 w-full center border bg-gray-900 border-gray-900 rounded-l-3xl h-9"
             type="text"
@@ -128,7 +128,7 @@ const Header = () => {
           </div>
         </button>
       </div>
-      <div className="col-span-1 justify-end xl:justify-start hidden md:flex">
+      <div className="col-span-1 justify-end hidden md:flex">
         <button className="text-2xl m-2 p-2">
           <MdCreateNewFolder />
         </button>

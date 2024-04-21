@@ -71,7 +71,7 @@ const Watchpage = () => {
                 </div>
               </div>
             </div>
-            <div className="m-1 p-1 items-center flex">
+            <div className="m-1 p-1 items-center hidden md:flex">
               <button
                 className={`text-black font-bold rounded-3xl w-[100px] h-10 ${
                   isSubscribed ? "bg-gray-600" : "bg-white"
@@ -105,7 +105,6 @@ const Watchpage = () => {
                 <button className="bg-gray-900 rounded-full mx-2 px-3 h-8">
                   <div className="flex text-lg">
                     <TfiDownload className="m-auto " />
-                    <h1 className="px-2 mx-1 text-sm">Download</h1>
                   </div>
                 </button>
               </div>
