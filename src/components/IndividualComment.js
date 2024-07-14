@@ -5,7 +5,7 @@ import { BiDislike } from 'react-icons/bi';
 const IndividualComment = ({ data }) => {
     const {authorDisplayName, textDisplay,likeCount} = data;
     return (
-      <div className="flex shadow-sm p-2 rounded-lg m-2 py-auto">
+      <div className="flex shadow-sm p-2 rounded-lg m-2 py-auto w-[100%]">
         <button className="text-3xl m-2 p-2">
           <FaUserCircle />
         </button>

@@ -12,7 +12,8 @@ const Videocontainer = () =>
     dispatch(fetchVideos());
   }, [dispatch]);
   const getVideoId = (video) => {
-    return video.id?.videoId || video.id;
+    //console.log(video.data)
+    return video.id?.videoId || video.id || video?.data?.id?.videoId;
   }
   return (
     <div className="flex flex-wrap justify-center sm:p-0 sm:m-0 md:p-2 md:m-2">

@@ -50,7 +50,7 @@ const Header = () => {
         [searchKey]: json[1],
       }));
     } catch (err) {
-      console.log("Error");
+      console.log("Error in get suggestions");
     }
   };
   const fetchData = async (s) => {

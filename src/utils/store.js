@@ -5,6 +5,7 @@ import chatSlice from './chatSlice';
 import modeSlice from './modeSlice';
 import videoSlice from './videoSlice';
 import searchKeySlice from './searchKeySlice';
+import suggestSlice from './suggestSlice';
 const Mystore = configureStore({
     reducer: {
         app: appslice,
@@ -12,7 +13,8 @@ const Mystore = configureStore({
         chat: chatSlice,
         mode: modeSlice,
         videos: videoSlice,
-        searchKey:searchKeySlice
+        searchKey:searchKeySlice,
+        suggest:suggestSlice,
     }
 })
 

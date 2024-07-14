@@ -22,7 +22,7 @@ const EachButton = (props) => {
   return (
     <div>
       <p
-        className="flex m-2 px-5 py-2 bg-gray-900 rounded-lg text-xs font-bold text-white whitespace-nowrap"
+        className="flex m-2 px-5 py-2 bg-gray-900 rounded-lg text-xs font-bold text-white whitespace-nowrap hover:text-black hover:bg-white"
         onClick={() => fetchData(props.name)}
       >
         {props.name}

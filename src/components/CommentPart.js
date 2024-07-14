@@ -16,7 +16,7 @@ export const CommentPart = ({ videoid }) => {
     getComments();
   },[videoid])
   return (
-      <div className='p-2 w-full'>
+      <div className='p-2 w-[100%]'>
           <h1 className='font-bold text-2xl'>Comments:-</h1>
       { commentData && <CommentList data={commentData} />}
     </div>
