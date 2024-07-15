@@ -9,7 +9,6 @@ const SuggestVideoCard = (video) => {
   return (
     <div className="w-[100%]">
       <div className="w-[100%] flex">
-        
           <img
             className="rounded-lg w-[40%] m-2"
             src={thumbnails.medium.url}

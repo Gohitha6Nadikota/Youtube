@@ -142,7 +142,7 @@ const Watchpage = () => {
           </div>
           {!live && <CommentPart videoid={videoid} className="w-[100%]" />}
         </div>
-        <div className="w-[35%]">
+        <div className="md:w-[35%] w-[100%]">
           {live && <LiveChat />}
           <Recommended/>
         </div>
